@@ -412,7 +412,12 @@ class Tech extends Component {
     });
   }
 
-  addWebVttScript() {
+  /**
+   * Add vtt.js if necessary
+   *
+   * @private
+   */
+  addWebVttScript_() {
     if (!window.WebVTT && this.el().parentNode !== null && this.el().parentNode !== undefined) {
       const script = document.createElement('script');
 
@@ -568,7 +573,6 @@ class Tech extends Component {
    *
    * @param {Object} options The object should contain values for
    * kind, language, label and src (location of the WebVTT file)
-   * @method createRemoteTextTrack
    */
   createRemoteTextTrack(options) {
     const track = mergeOptions(options, {
